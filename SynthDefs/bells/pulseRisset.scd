@@ -1,4 +1,4 @@
-SynthDef("pulseRisset", {arg freq = 440, att = 0.01, rel = 11, amp = 0.1, pan = 0, pulseFreq = 8;
+SynthDef("pulseRisset", {arg out = 0, freq = 440, att = 0.01, rel = 11, amp = 0.1, pan = 0, pulseFreq = 8;
     var partials, durs, amps, snd, env;
  	partials = [246.4, 247.4, 404.8, 406.5, 523.6, 748, 880, 1206, 1320, 1654, 1791]; // original freqs
 	partials = (partials / 440) * freq; // consider 440 the 'root'
@@ -21,7 +21,7 @@ SynthDef("pulseRisset", {arg freq = 440, att = 0.01, rel = 11, amp = 0.1, pan = 
 	snd = LPF.ar(snd, 12000);
 	snd = Limiter.ar(Mix.ar(snd));
 
-	Out.ar(0, Pan2.ar(snd,pan) );
+	Out.ar(out, Pan2.ar(snd,pan) );
 },
 metadata: (
 	credit: "by Bruno Tucunduva Ruviaro, based on Jean-Claude Risset's bell",

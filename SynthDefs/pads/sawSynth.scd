@@ -2,7 +2,7 @@
 http://sccode.org/1-5aD
 */
 
-SynthDef("sawSynth", { arg freq = 440, amp = 0.1, att = 0.1, rel = 2, lofreq = 1000, hifreq = 3000, pan = 0;
+SynthDef("sawSynth", { arg out = 0, freq = 440, amp = 0.1, att = 0.1, rel = 2, lofreq = 1000, hifreq = 3000, pan = 0;
     var env, snd;
     env = Env.perc(
 		attackTime: att,
@@ -16,7 +16,7 @@ SynthDef("sawSynth", { arg freq = 440, amp = 0.1, att = 0.1, rel = 2, lofreq = 1
 	);
     snd = Mix.ar(snd);
 	snd = Pan2.ar(snd, pan);
-    Out.ar(0, snd);
+    Out.ar(out, snd);
 // Basic saw synth
 //By Bruno Ruviaro
 //http://sccode.org/1-54H
