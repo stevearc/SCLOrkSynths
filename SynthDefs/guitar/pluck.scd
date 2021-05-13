@@ -9,5 +9,5 @@ SynthDef("pluck", {arg out = 0, amp = 0.1, freq = 440, decay = 5, coef = 0.1, pa
 		decaytime: decay,
 		coef: coef);
 	snd = Pan2.ar(snd, pan);
-	Out.ar(out, [snd, snd]);
+	Out.ar(out, snd);
 }).add;
