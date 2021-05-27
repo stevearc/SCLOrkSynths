@@ -31,8 +31,8 @@ SynthDef("organDonor",{
 	pulse = Mix(pulse);
 	filter = RLPF.ar(pulse, cutoff, rq);
 	env = EnvGen.ar(
-		envelope: Env.adsr(att, dec, sus, rel, amp),
+		envelope: Env.adsr(att, dec, sus, rel),
 		gate: gate,
 		doneAction: 2);
-	Out.ar(out, Pan2.ar(filter * env, pan));
+	Out.ar(out, Pan2.ar(filter * env, pan, amp));
 }).add;
