@@ -36,7 +36,7 @@ SynthDef(\FMRhodes1, {
     osc2 = SinOsc.ar(freq * 30) * 0.683729941 * env2;
     osc1 = SinOsc.ar(freq * 2, osc2) * env1;
     snd = Mix((osc3 * (1 - mix)) + (osc1 * mix));
-  	snd = snd * (SinOsc.ar(lfoSpeed).range((1 - lfoDepth), 1));
+    snd = snd * (SinOsc.ar(lfoSpeed).range((1 - lfoDepth), 1));
 
     snd = snd * Env.asr(0, 1, 0.1).kr(gate: gate, doneAction: 2);
     snd = Pan2.ar(snd, pan, amp);
@@ -44,9 +44,9 @@ SynthDef(\FMRhodes1, {
     Out.ar(out, snd);
 },
 metadata: (
-	credit: "Nathan Ho",
-	category: \keyboards,
-	tags: [\pitched, \piano, \fm]
+  credit: "Nathan Ho",
+  category: \keyboards,
+  tags: [\pitched, \piano, \fm]
 )
 ).add;
 
